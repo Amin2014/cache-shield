@@ -1,0 +1,35 @@
+{
+  "name": "cache-shield/cache-shield",
+  "description": "Bounded cache stampede protection with PSR-16 and atomic locks",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.3",
+    "psr/simple-cache": "^3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.5",
+    "phpstan/phpstan": "^2.1",
+    "friendsofphp/php-cs-fixer": "^3.70",
+    "symfony/cache": "^7.3"
+  },
+  "suggest": {
+    "ext-redis": "Required for RedisLockProvider and the example"
+  },
+  "autoload": {
+    "psr-4": {
+      "CacheShield\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CacheShield\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit --testsuite unit",
+    "test:redis": "phpunit --testsuite integration",
+    "analyse": "phpstan analyse",
+    "style": "php-cs-fixer fix --dry-run --diff"
+  }
+}
